@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import profileImg from '../rehanlinkedin.jpg';
-import resumePdf from '../assets/MOHAMMAD REHAN KHAN Hirex.pdf';
 import '../index.css'; // for star background
 
 const NUM_STARS = 60;
@@ -108,7 +107,7 @@ const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 mb-8"
           >
             <motion.a
-              href={resumePdf}
+              href="/MOHAMMAD-REHAN-KHAN-Hirex.pdf"
               download
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg font-medium hover:from-blue-600 hover:to-teal-500 transition-all duration-300 shadow-lg mt-4"
             >
