@@ -18,16 +18,22 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      title: "WordPress Multi-Environment Deployment",
-      description: "Highly available WordPress application on AWS with private MySQL database in production and EKS for development. Implemented IAM security, firewalls, and cloud monitoring achieving 99.99% uptime.",
-      technologies: ["WordPress", "MySQL", "AWS", "Kubernetes", "IAM", "Cloud Monitoring"],
+      title: "Advanced DevSecOps CI/CD Pipeline with Jenkins, Terraform, ArgoCD, & AWS EKS",
+      description: `Built a fully automated, secure, and scalable end-to-end DevSecOps pipeline deploying a three-tier microservices application on Amazon EKS using Terraform, Jenkins, and ArgoCD.\n\nAutomated complete infrastructure provisioning (VPC, IAM, EKS, ECR, etc.) using Terraform, triggered directly via Jenkins pipelines.\n\nCreated Jenkins stages to build Docker images, scan for vulnerabilities, push to Amazon ECR.\n\nIntegrated ArgoCD to perform declarative GitOps-based deployments to EKS across multiple environments (dev, staging, prod).\n\nFollowed DevSecOps best practices including IAM security, vulnerability scanning, and network isolation across CI/CD stages.`,
+      technologies: ["Jenkins", "Terraform", "ArgoCD", "AWS EKS", "Docker", "GitHub", "ECR", "Kubernetes", "IAM", "VPC"],
       icon: Cloud,
       gradient: "from-purple-500 to-pink-500",
       highlights: [
-        "99.99% uptime achievement",
-        "Multi-environment setup",
-        "Private MySQL database",
-        "Comprehensive security implementation"
+        "Automated, secure, and scalable end-to-end DevSecOps pipeline",
+        "Three-tier microservices app on EKS",
+        "Terraform for infra provisioning (VPC, IAM, EKS, ECR)",
+        "Jenkins for build, scan, push to ECR",
+        "ArgoCD for GitOps-based multi-env deployment",
+        "DevSecOps best practices: IAM, scanning, network isolation"
+      ],
+      githubUrls: [
+        "https://github.com/Rehankhan152/terraform-eks-multistage-cicd-appcode.git",
+        "https://github.com/Rehankhan152/terraform-eks-multistage-cicd-project.git"
       ]
     },
     {
@@ -149,22 +155,46 @@ const Projects: React.FC = () => {
 
                     {/* Action Buttons */}
                     <div className="flex gap-4">
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg font-medium hover:from-blue-600 hover:to-teal-500 transition-all duration-300"
-                      >
-                        <Github className="w-4 h-4" />
-                        View Code
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 px-4 py-2 border-2 border-blue-500 text-blue-500 dark:text-blue-400 rounded-lg font-medium hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white transition-all duration-300"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Live Demo
-                      </motion.button>
+                      {index === 0 && (
+                        <motion.a
+                          href="https://github.com/Rehankhan152/ci-cd-pipeline.git"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg font-medium hover:from-blue-600 hover:to-teal-500 transition-all duration-300"
+                        >
+                          <Github className="w-4 h-4" />
+                          View Code
+                        </motion.a>
+                      )}
+                      {index === 1 && projects[1].githubUrls && projects[1].githubUrls.map((url, i) => (
+                        <motion.a
+                          key={url}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg font-medium hover:from-blue-600 hover:to-teal-500 transition-all duration-300"
+                        >
+                          <Github className="w-4 h-4" />
+                          View Code {i + 1}
+                        </motion.a>
+                      ))}
+                      {index === 2 && (
+                        <motion.a
+                          href="https://github.com/Rehankhan152/devops-project-1.git"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg font-medium hover:from-blue-600 hover:to-teal-500 transition-all duration-300"
+                        >
+                          <Github className="w-4 h-4" />
+                          View Code
+                        </motion.a>
+                      )}
                     </div>
                   </div>
                 </div>
