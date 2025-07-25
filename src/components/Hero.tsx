@@ -33,6 +33,15 @@ const Hero: React.FC = () => {
     "Driving Cloud-Native DevOps Solutions"
   ];
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = resumePdf;
+    link.download = 'MOHAMMAD-REHAN-KHAN-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentText((prev) => (prev + 1) % texts.length);
@@ -106,14 +115,15 @@ const Hero: React.FC = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 mb-8"
           >
-            <motion.a
-              href="/MOHAMMAD-REHAN-KHAN-Hirex.pdf"
-              download
+            <motion.button
+              onClick={handleDownloadResume}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg font-medium hover:from-blue-600 hover:to-teal-500 transition-all duration-300 shadow-lg mt-4"
             >
               <Download className="w-5 h-5" />
               Download Resume
-            </motion.a>
+            </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
